@@ -1,0 +1,903 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<zabbix_export>
+    <version>5.0</version>
+    <date>2020-11-25T12:49:58Z</date>
+    <groups>
+        <group>
+            <name>Security Cameras - HikVision</name>
+        </group>
+    </groups>
+    <templates>
+        <template>
+            <template>Security Cameras - HikVision</template>
+            <name>Security Cameras - HikVision</name>
+            <description>Based of SNMP v2 Generic</description>
+            <templates>
+                <template>
+                    <name>Template App HTTP Service</name>
+                </template>
+                <template>
+                    <name>Template Module ICMP Ping</name>
+                </template>
+            </templates>
+            <groups>
+                <group>
+                    <name>Security Cameras - HikVision</name>
+                </group>
+            </groups>
+            <applications>
+                <application>
+                    <name>General</name>
+                </application>
+                <application>
+                    <name>Video Stream</name>
+                </application>
+            </applications>
+            <items>
+                <item>
+                    <name>The num of input channel for alarming.</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.30.0</snmp_oid>
+                    <key>alarmInChanNum</key>
+                    <delay>60m</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>Количество  входных тревожных интерфейсов</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <preprocessing>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>1d</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>The num of output channel for alarming.</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.31.0</snmp_oid>
+                    <key>alarmOutChanNum</key>
+                    <delay>60m</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>Количество  выходных тревожных интерфейсов</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <preprocessing>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>1d</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>The ability of audio.</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.23.0</snmp_oid>
+                    <key>audioAbility</key>
+                    <delay>60m</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>Поддержка аудио.</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <valuemap>
+                        <name>Hikvision support of audio</name>
+                    </valuemap>
+                    <preprocessing>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>1d</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>The number of audio input.</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.24.0</snmp_oid>
+                    <key>audioInNum</key>
+                    <delay>60m</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>Номер аудиовхода.</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <valuemap>
+                        <name>Hikvision support of audio</name>
+                    </valuemap>
+                    <preprocessing>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>1d</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>The number of clarity channels.</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.26.0</snmp_oid>
+                    <key>clarityChanNum</key>
+                    <delay>60m</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>Количество каналов четкости.</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <preprocessing>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>1d</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>Percentage of cpu used on the device.</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.7.0</snmp_oid>
+                    <key>cpuPercent</key>
+                    <description>Percentage of cpu used on the device.</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <preprocessing>
+                        <step>
+                            <type>RTRIM</type>
+                            <params>PERCENT</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>The code name of manufacturer of this device.</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.5.0</snmp_oid>
+                    <key>deviceID</key>
+                    <delay>60m</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>The code name of manufacturer of this device.</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <preprocessing>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>1d</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>The type of device.</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.1.0</snmp_oid>
+                    <key>deviceType</key>
+                    <delay>60m</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>Тип устройства.</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <preprocessing>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>1d</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>Percentage of space used on disk.</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.9.0</snmp_oid>
+                    <key>diskPercent</key>
+                    <description>Percentage of space used on disk.</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <preprocessing>
+                        <step>
+                            <type>RTRIM</type>
+                            <params>PERCENT</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>The total size of the disk.</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.8.0</snmp_oid>
+                    <key>diskSize</key>
+                    <delay>60m</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>The total size of the disk.</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <preprocessing>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>1d</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>The dynamic gateway address.</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.15.0</snmp_oid>
+                    <key>dynGateway</key>
+                    <delay>60m</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>Адрес динамического шлюза.</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <preprocessing>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>1d</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>The dynamic IP address.</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.13.0</snmp_oid>
+                    <key>dynIpAddr</key>
+                    <delay>60m</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>Динамический IP-адрес.</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <preprocessing>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>1d</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>The dynamic subnet mask associated with the IP address.</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.14.0</snmp_oid>
+                    <key>dynNetMask</key>
+                    <delay>60m</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>Динамическая маска подсети, связанная с IP-адресом.</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <preprocessing>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>1d</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>The version of hardware in this device.</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.2.0</snmp_oid>
+                    <key>hardwVersion</key>
+                    <delay>60m</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>Версия оборудования в этом устройстве.</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <preprocessing>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>1d</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>The support of local storage.</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.27.0</snmp_oid>
+                    <key>localStorage</key>
+                    <delay>60m</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>Поддержка локального хранилища.</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <valuemap>
+                        <name>Hikvision support of local storage.</name>
+                    </valuemap>
+                    <preprocessing>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>1d</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>The MAC address of the device.</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.4.0</snmp_oid>
+                    <key>macAddr</key>
+                    <delay>60m</delay>
+                    <trends>0</trends>
+                    <value_type>TEXT</value_type>
+                    <description>The MAC address of the device.</description>
+                    <inventory_link>MACADDRESS_A</inventory_link>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <preprocessing>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>1d</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>The port of network manage host.</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.34.0</snmp_oid>
+                    <key>managePort</key>
+                    <delay>60m</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>Порт хоста управления сетью.</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <preprocessing>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>1d</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>The address of network manage host.</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.32.0</snmp_oid>
+                    <key>manageServAddr</key>
+                    <delay>60m</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>Адрес хоста управления сетью.</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <preprocessing>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>1d</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>The manufacturer of this device.</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.6.0</snmp_oid>
+                    <key>manufacturer</key>
+                    <delay>60m</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>The manufacturer of this device.</description>
+                    <inventory_link>VENDOR</inventory_link>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <preprocessing>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>1d</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>The memory size on the device. (MB)</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.10.0</snmp_oid>
+                    <key>memSize</key>
+                    <delay>60m</delay>
+                    <description>The memory size on the device.</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <preprocessing>
+                        <step>
+                            <type>RTRIM</type>
+                            <params>MB</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>The memory used on the device. (PERCENT)</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.11.0</snmp_oid>
+                    <key>memUsed</key>
+                    <description>The memory used on the device.</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <preprocessing>
+                        <step>
+                            <type>RTRIM</type>
+                            <params>PERCENT</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>The type of network access supported.</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.29.0</snmp_oid>
+                    <key>netAccessType</key>
+                    <delay>60m</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>Текущий тип подключения  к сети</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <preprocessing>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>1d</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>The IP address of NTP server.</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.33.0</snmp_oid>
+                    <key>ntpServIpAddr</key>
+                    <delay>60m</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>IP-адрес NTP-сервера.</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <preprocessing>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>1d</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>The support of restarting the device</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.12.0</snmp_oid>
+                    <key>restartDev</key>
+                    <delay>60m</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>Поддержка перезагрузки устройства.</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <valuemap>
+                        <name>Hikvision support of restarting the device.</name>
+                    </valuemap>
+                </item>
+                <item>
+                    <name>The support of RTSP lookback.</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.28.0</snmp_oid>
+                    <key>rtspPlayBack</key>
+                    <delay>60m</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>Поддержка петли RTSP.&#13;
+&#13;
+Если вы хотите использовать мульти-кодирование и перекодировать свой канал Pearl с другим разрешением или битрейтом, это легко сделать с помощью петли RTSP.&#13;
+&#13;
+Например, чтобы сделать канал 2 версией 720p вашей полностью переключаемой программы 1080p на канале 1, вы берете поток RTSP из вашего программного канала (например, канал 1) и используете его как источник видео и звука для канала 2.&#13;
+&#13;
+https://www.epiphan.com/userguides/pearl/Content/UserGuides/Streaming/capture/sourceCreateRTSPLoopack.htm</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <valuemap>
+                        <name>Etcd leader</name>
+                    </valuemap>
+                    <preprocessing>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>1d</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>The version of software</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.3.0</snmp_oid>
+                    <key>softwVersion</key>
+                    <delay>60m</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>Версия прошивки.</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <preprocessing>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>1d</params>
+                        </step>
+                    </preprocessing>
+                    <triggers>
+                        <trigger>
+                            <expression>{diff()}=1</expression>
+                            <recovery_mode>NONE</recovery_mode>
+                            <name>Firmware Updated</name>
+                            <priority>INFO</priority>
+                            <manual_close>YES</manual_close>
+                        </trigger>
+                    </triggers>
+                </item>
+                <item>
+                    <name>The static Gateway</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.18.0</snmp_oid>
+                    <key>staticGateway</key>
+                    <delay>60m</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>Статический шлюз.</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <preprocessing>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>1d</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>The static IP address.</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.16.0</snmp_oid>
+                    <key>staticIpAddr</key>
+                    <delay>60m</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>Статический IP-адрес.</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <preprocessing>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>1d</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>The static subnet mask associated with the IP address.</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.17.0</snmp_oid>
+                    <key>staticNetMask</key>
+                    <delay>60m</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>Статическая маска подсети, связанная с IP-адресом.</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <preprocessing>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>1d</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>The host's notion of the local date and time of day.</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.19.0</snmp_oid>
+                    <key>sysTime</key>
+                    <delay>60m</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>Текущая дата и время на хосте</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <preprocessing>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>1d</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>The type of video coding.</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.21.0</snmp_oid>
+                    <key>videoEncode</key>
+                    <delay>60m</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>The type of video coding.</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <preprocessing>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>1d</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>The number of video input channels.</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.20.0</snmp_oid>
+                    <key>videoInChanNum</key>
+                    <delay>60m</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>Количество каналов видеовхода.</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <preprocessing>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>1d</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>The type of video network transmission.</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.22.0</snmp_oid>
+                    <key>videoNetTrans</key>
+                    <delay>60m</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>Тип передачи видео по сети.</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <preprocessing>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>1d</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>The number of video output.</name>
+                    <type>SNMP_AGENT</type>
+                    <snmp_oid>1.3.6.1.4.1.39165.1.25.0</snmp_oid>
+                    <key>videoOutNum</key>
+                    <delay>60m</delay>
+                    <trends>0</trends>
+                    <value_type>CHAR</value_type>
+                    <description>Количество видеовыходов.</description>
+                    <applications>
+                        <application>
+                            <name>General</name>
+                        </application>
+                    </applications>
+                    <preprocessing>
+                        <step>
+                            <type>DISCARD_UNCHANGED_HEARTBEAT</type>
+                            <params>1d</params>
+                        </step>
+                    </preprocessing>
+                </item>
+                <item>
+                    <name>SNMP agent availability</name>
+                    <type>INTERNAL</type>
+                    <key>zabbix[host,snmp,available]</key>
+                    <delay>5m</delay>
+                    <history>7d</history>
+                    <applications>
+                        <application>
+                            <name>Status</name>
+                        </application>
+                    </applications>
+                    <valuemap>
+                        <name>zabbix.host.available</name>
+                    </valuemap>
+                    <triggers>
+                        <trigger>
+                            <expression>{max({$SNMP.TIMEOUT})}=0</expression>
+                            <name>No SNMP data collection</name>
+                            <opdata>Current state: {ITEM.LASTVALUE1}</opdata>
+                            <priority>WARNING</priority>
+                            <description>SNMP is not available for polling. Please check device connectivity and SNMP settings.</description>
+                            <dependencies>
+                                <dependency>
+                                    <name>Unavailable by ICMP ping</name>
+                                    <expression>{Security Cameras - HikVision:icmpping.max(#3)}=0</expression>
+                                </dependency>
+                            </dependencies>
+                        </trigger>
+                    </triggers>
+                </item>
+            </items>
+            <httptests>
+                <httptest>
+                    <name>RTSP Check</name>
+                    <application>
+                        <name>Video Stream</name>
+                    </application>
+                    <agent>Mozilla/5.0 (Windows NT 6.1; WOW64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/38.0.2125.104 Safari/537.36</agent>
+                    <authentication>BASIC</authentication>
+                    <http_user>{$RTSP_USER}</http_user>
+                    <http_password>{$RTSP_PASS}</http_password>
+                    <steps>
+                        <step>
+                            <name>Check if RTSP is Active</name>
+                            <url>rtsp://{HOST.IP}:554/Streaming/Channels/101/</url>
+                            <follow_redirects>NO</follow_redirects>
+                        </step>
+                    </steps>
+                </httptest>
+            </httptests>
+            <macros>
+                <macro>
+                    <macro>{$RTSP_PASS}</macro>
+                    <value>RTSP_PASS</value>
+                </macro>
+                <macro>
+                    <macro>{$RTSP_USER}</macro>
+                    <value>RTSP_User</value>
+                </macro>
+                <macro>
+                    <macro>{$SNMP.TIMEOUT}</macro>
+                    <value>5m</value>
+                </macro>
+            </macros>
+        </template>
+    </templates>
+    <value_maps>
+        <value_map>
+            <name>Etcd leader</name>
+            <mappings>
+                <mapping>
+                    <value>0</value>
+                    <newvalue>No</newvalue>
+                </mapping>
+                <mapping>
+                    <value>1</value>
+                    <newvalue>Yes</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+        <value_map>
+            <name>Hikvision support of audio</name>
+            <mappings>
+                <mapping>
+                    <value>0</value>
+                    <newvalue>no</newvalue>
+                </mapping>
+                <mapping>
+                    <value>1</value>
+                    <newvalue>yes</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+        <value_map>
+            <name>Hikvision support of local storage.</name>
+            <mappings>
+                <mapping>
+                    <value>0</value>
+                    <newvalue>no</newvalue>
+                </mapping>
+                <mapping>
+                    <value>1</value>
+                    <newvalue>yes</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+        <value_map>
+            <name>Hikvision support of restarting the device.</name>
+            <mappings>
+                <mapping>
+                    <value>0</value>
+                    <newvalue>yes</newvalue>
+                </mapping>
+                <mapping>
+                    <value>1</value>
+                    <newvalue>no</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+        <value_map>
+            <name>zabbix.host.available</name>
+            <mappings>
+                <mapping>
+                    <value>0</value>
+                    <newvalue>not available</newvalue>
+                </mapping>
+                <mapping>
+                    <value>1</value>
+                    <newvalue>available</newvalue>
+                </mapping>
+                <mapping>
+                    <value>2</value>
+                    <newvalue>unknown</newvalue>
+                </mapping>
+            </mappings>
+        </value_map>
+    </value_maps>
+</zabbix_export>
